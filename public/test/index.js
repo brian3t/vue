@@ -5,9 +5,9 @@ var app = new Vue({
     header: 'vue is ready to party',
     newitem: '',
     items: [
-      {id: 0, text: 'Vegetables'},
-      {id: 1, text: 'Cheese'},
-      {id: 2, text: 'Whatever else humans are supposed to eat'}
+      'Vegetables',
+      'Cheese',
+      'Whatever else humans are supposed to eat'
     ]
   }
 });
