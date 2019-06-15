@@ -1,14 +1,24 @@
-
 var app = new Vue({
   el: '#shopping-list',
   data: {
+    state: 'default',
     header: 'vue is ready to party',
     newitem: '',
     items: [
-      'Vegetables',
-      'Cheese',
-      'Whatever else humans are supposed to eat'
+      {purchased: false, label: 'Vegetables', high_priority: false},
+      {purchased: true, label: 'Cheese', high_priority: false},
+      {purchased: false, label: 'Whatever else humans are supposed to eat', high_priority: true}
     ]
+  },
+  methods: {
+    save_item: function () {
+      this.items.push({label: this.newitem, purchased: false, high_priority: false})
+      this.newitem = ''
+    },
+    change_state: function (new_state) {
+      this.state = new_state
+      this.newitem = ''
+    }
   }
 });
 /*
