@@ -10,6 +10,13 @@ var app = new Vue({
       {purchased: false, label: 'Whatever else humans are supposed to eat', high_priority: true}
     ]
   },
+  computed: {
+    reversed_items: function () {
+      let reversed_items = this.items.slice(0)
+      reversed_items.reverse()
+      return reversed_items
+    }
+  },
   methods: {
     save_item: function () {
       this.items.push({label: this.newitem, purchased: false, high_priority: false})
@@ -18,8 +25,11 @@ var app = new Vue({
     change_state: function (new_state) {
       this.state = new_state
       this.newitem = ''
+    },
+    toggle_purchased: function (item) {
+      item.purchased = ! item.purchased
     }
-  }
+  },
 });
 /*
 Vue.component('todo-item', {
